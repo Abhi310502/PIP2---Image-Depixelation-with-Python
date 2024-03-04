@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Readme</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="cnn-to-depixelate-parts-of-image">CNN to depixelate parts of image</h1>
+<h3 id="the-jupyter-notebook-file-is-the-main-code-file.-it-includes-a-walkthrough-of-how-the-code-was-written-and-visualizations-to-help-understand-the-process.">The Jupyter Notebook file is the main code file. It includes a walkthrough of how the code was written and visualizations to help understand the process.</h3>
+<h4 id="please-note-the-file-paths-are-absolute-in-all-code-files.-kindly-change-them-to-the-appropriate-file-paths-for-reproduction.">Please note: The file paths are absolute in all code files. Kindly change them to the appropriate file paths for reproduction.</h4>
+<p>First and foremost, the original images were converted to 64x64 grayscale images using the to_grayscale.py file. This resulted in less computation times later.</p>
+<p>The <a href="http://grayscale.py">grayscale.py</a> and prepare_image.py files contain the respective functions as defined in the original assignments. The <a href="http://Dataset.py">Dataset.py</a> file contains the custom dataset with the only difference from the original being that this version returns the original image as well.</p>
+<p>The stacking function returns the stacked original images, pixelated images and known arrays. These are ultimately not transformed per se, since all of them have the same shape 64x64. They are, however, stacked. The file also returns the stacked target arrays that are different from the original implementation, This version returns a 64x64 black image with the target array broadcasted onto it.</p>
+<p>The <a href="http://CNN.py">CNN.py</a> file includes the implementation of the CNN we use for this project and is just a very basic model. The file also prints the number of total and trainable parameters.</p>
+<p>We now come to the <a href="http://main.py">main.py</a> file. This is responsible for the actual implementation. The code files as well as the jupyter file explains the minutae of the code. However, what this file essentially does is create a dataset according to our custom dataset, then creates dataloaders, using the stacking function as the collate_fn. An instance of CNN is created with the specified hyperparameters. Then the model is trained on our images. The loss is subsequently plotted to give an idea about the performace. Finally, the parameters are stored in a file.</p>
+<p>In the <a href="http://serailize.py">serailize.py</a> file, we take the saved model, initialize a model with the <em>same</em> hyperparameters as the saved model. We then collect the predicted values for the pixelated regions for the test set and store them in a list. We encode the output using the serialize function provided to us. Additionally, we iterate over the test set again and then collect the entire image image to be able to compare what the final output looks like with respect to the input. We take a random image for visualization every time.</p>
+<p>This wraps up the implementation of the project. The jupyter notebook contains comments at every step of the way that may be able to shed more light on how the code works.</p>
+<p>Additionally, the model is also included since it would take a long time to train otherwise.</p>
+</div>
+</body>
+
+</html>
