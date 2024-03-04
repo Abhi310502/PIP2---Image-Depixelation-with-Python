@@ -5,7 +5,7 @@ CNN to depixelate parts of image
 
 ### The Jupyter Notebook file is the main code file. It includes a walkthrough of how the code was written and visualizations to help understand the process.
 
-#### Please note: The file paths are absolute in all code files. Kindly change them to the appropriate file paths for reproduction.
+#### Please note: The file paths are absolute in all code files. Kindly change them to the appropriate file paths for reproduction. Please also note that cell 75 in the Jupyter notebook has a KeyboardInterrupt. This is because the cell is for visualization only and would otherwise visualization every image in the dataset.
 
 First and foremost, the original images were converted to 64x64 grayscale images using the to\_grayscale.py file. This resulted in less computation times later.
 
